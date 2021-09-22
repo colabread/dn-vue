@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-text="h1"></h1>
+        <h2>{{ h2 }}</h2>
+        <h3>{{ h3 }} -- {{ h3 }}</h3>
+        <div v-html="htmlStr"></div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                h1: 'this is h1',
+                h2: 'this is h2',
+                h3: 'this is h3',
+                htmlStr: '<h4>this is h4</h4>'
+            }
+        })
+    </script>
+</body>
+</html>

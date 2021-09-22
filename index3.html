@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="./js/ResizeSensor.js"></script>
+</head>
+<body>
+    <div id="div1" style="background: red;width: 50%;height: 50%;">
+
+    </div>
+    <script>
+       const div1 = document.getElementById('div1');
+
+       new ResizeSensor(div1, () => {
+           console.log('call ResizeSensor')
+       })
+
+       setTimeout(() => {
+           const sensor = document.querySelector('.resize-sensor-expand');
+           sensor.scrollLeft = 100;
+       }, 1000)
+
+       // const div1 = document.getElementById('div1');
+       // div1.addEventListener('scroll', () => {
+       //     console.log('scroll');
+       // })
+       //
+       // div1.addEventListener('over')
+       //
+       // setTimeout(() => {
+       //     div1.scrollLeft = 10;
+       // }, 2000)
+
+
+    </script>
+</body>
+</html>

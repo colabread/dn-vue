@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<a href="#link1">link1</a>
+<script>
+    let target = [];
+    let handler = {
+        get(target, property, proxy) {
+            console.log('call get proxy');
+            return Reflect.get(...arguments);
+        },
+        set(target, key, value, proxy) {
+            console.log('call set proxy');
+            return Reflect.set(...arguments);
+        },
+        deleteProperty(target, index) {
+            console.log('call delete proxy');
+            return Reflect.deleteProperty(...arguments);
+        }
+    };
+    let proxy = new Proxy(target, handler);
+    proxy.push(1);
+    console.log(proxy)
+    proxy.pop();
+    console.log(proxy)
+    proxy.unshift(2);
+    console.log(proxy)
+    proxy.shift();
+    console.log(proxy)
+    proxy.push(3);
+    console.log(proxy)
+    proxy.splice(0, 1);
+    console.log(proxy)
+</script>
+</body>
+</html>

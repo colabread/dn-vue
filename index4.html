@@ -10,6 +10,12 @@
         <h2>{{ h2 }}</h2>
         <h3>{{ h3 }} -- {{ h3 }}</h3>
         <div v-html="htmlStr"></div>
+        <h5>{{ obj.innerObj.name }}</h5>
+        <p v-text="msg"></p>
+        <input type="text" v-model="msg" />
+        <button v-on:click="someFunc">click1</button>
+        <button @click="someFunc">click2</button>
+        <button @click="changeMsg">changeMsg</button>
     </div>
     <script src="./js/vue.js"></script>
     <script>
@@ -19,7 +25,21 @@
                 h1: 'this is h1',
                 h2: 'this is h2',
                 h3: 'this is h3',
-                htmlStr: '<h4>this is h4</h4>'
+                htmlStr: '<h4>this is h4</h4>',
+                obj: {
+                    innerObj: {
+                        name: '张三'
+                    }
+                },
+                msg: 'model msg'
+            },
+            methods: {
+                someFunc() {
+                    console.log(this);
+                },
+                changeMsg() {
+                    this.$data.msg = 'changed msg'
+                }
             }
         })
     </script>
